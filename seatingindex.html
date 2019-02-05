@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="seatingstyles.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Rubik" rel="stylesheet">
+</head>
+
+<body>
+    <div class="appContainer">
+        <div class="textWrapper">
+            <h4>Table Finder</h4>
+            <p>Pick your table now</p>
+        </div>
+        <div class="seatMap">
+            <div class="table 1 available">1</div>
+            <div class="table 2 available">2</div>
+            <div class="table 3 available">3</div>
+            <div class="table 4 available">4</div>
+            <div class="table 5 available">5</div>
+            <div class="table 6 available">6</div>
+            <div class="table 7 available">7</div>
+            <div class="table 8 available">8</div>
+            <div class="table 9 available">9</div>
+        </div>
+        <section class="popup">
+            <div class="xbutton"><img src="xbutton.png"></div>
+                <form>
+                    <h5>New Reservation</h5>
+                    <p class="formTableNumber">Table Number: </p>
+                    <input type="text" name="name" placeholder="Name">
+                    <input type="text" name="phone" placeholder="Phone number">
+                    <input type="text" name="size" placeholder="Number of people">
+                    <input class="input" type="submit">
+                </form>
+            </section>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="seatingjs.js"></script>
+</body>
+
+</html>
