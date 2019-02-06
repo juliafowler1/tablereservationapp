@@ -1,89 +1,68 @@
 "use strict";
 $(document).ready(function () {
+    let selectedTable = null;
+    $(document).on("click", ".available", function (e) {
+        $(".popup").fadeIn(1000)
+        let selectedTable = $(e.target);
+        $(".formTableNumber").html("Table Number:" + $(e.target).attr('id'));
+        $(document).on("click", ".table", function (e) {
+            //this is wrong
+            $(e.target).removeClass("available").addClass("reserved");
+        });
+        $(document).on("click", "button", (event) => {
+            selectedTable
+                .attr("name", $("input").eq(0).val())
+                .attr("phone", $("input").eq(1).val())
+                .attr("size", $("input").eq(2).val());
+            $("input").each(function () {
+                $(this).val("");
+            });
+        });
+        $(document).on("mouseenter", ".container", (event) => {
+            if ($(event.target).attr("name") && $(event.target).attr("phone") && $(event.target).attr("size")) {
+                $(event.target).append(`
+                      <section class="tooltip">
+                        Name: ${$(event.target).attr("name")}
+                        Phone: ${$(event.target).attr("phone")}
+                        Party Size: ${$(event.target).attr("size")}
+                      </section>
+                      `);
 
-    $(".table.available").on("click", function (e) {
-        $(".popup").css("display", "flex");
-        $(".popup").css("position", "absolute");
-        let tablenum = $(e.target);
-        $(".formTableNumber").append(tablenum.text());
-        console.log(tablenum);
-
+            }
+        });
     });
 
-    //if available on hover css change and cursor
-    $(".table").mouseover(function (e) {
-        if ($(e.target).hasClass("available")) {
-            $(e.target).css("backgroundColor", "#EEE");
-            $(".table").on("mouseout", function (e) {
-                $(e.target).css("backgroundColor", "#CCC");
-            })
-        }
+    $(document).on("mouseenter", ".available", function (e) {
+        $(e.target).toggleClass("hover")
+    })
 
-        $(".xbutton").on("click", function(){
-            $(".popup").css("display", "none");
+    $(document).on("mouseleave", ".available", function (e) {
+        $(e.target).toggleClass("hover")
+
+        $(".xbutton").on("click", function () {
+            $(".popup").remove();
         })
+    })
+    // //tool tip
+    // $(document).on("click", "button", (event) => {
+    //     container
+    //         .attr("name", $("input").eq(0).val())
+    //         .attr("phone", $("input").eq(1).val())
+    //         .attr("size", $("input").eq(2).val());
+    //     $("input").each(function () {
+    //         $(this).val("");
+    //     });
+    //     $(document).on("mouseenter", ".container", (event) => {
+    //         if ($(event.target).attr("name") && $(event.target).attr("phone") && $(event.target).attr("size")) {
+    //             $(event.target).append(`
+    //       <section class="tooltip">
+    //         Name: ${$(event.target).attr("name")}
+    //         Phone: ${$(event.target).attr("phone")}
+    //         Party Size: ${$(event.target).attr("size")}
+    //       </section>
+    //       `);
 
-
-
-
-    });
-
-
-    // submitting form will change class to reserved
-
-
-    // if class == reserved not allowed
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // let tablenum = $(e.target);
-    // $(".tablenumber".append(tablenum.text(){
-
-    // })
-    // $("body").off("click", (function() {
-    //     console.log("fuck ya");
-    // $(".popup").css({"display":"none"});
-
-    // }))
-
-    // $("body").click(function(e) {
-    //     $(".table").off("click");
-
-
-
-    //     console.log("hey")
-    //     if(e.target.id == "nomore"){
-    //         $(".popup").hide();
     //     }
     // });
 
-
-
-
-
-
-
-});
-
-
-
-// target table on click function {}
-// popup css display flex
-// popuop css position absolute
-
-// off click targeting popup
-
-// jquery off()
+});//end document ready function

@@ -17,7 +17,7 @@ h4 {
 .textWrapper {
     text-align: center;
 }
-input {
+.save {
     font-family: 'Rubik', sans-serif;
 
 }
@@ -64,17 +64,25 @@ input {
     display: none;
 
 }
-.input {
+.save {
     background-color: #008000;
     border: none;
     box-shadow: 0px 5px 15px 1px rgba(0,0,0,0.3);
     border-radius: 5px;
-    margin-top: 10px
+    margin-top: 10px;
+    height: 40px;
+    width: 240px;
 }
 input[type="text"] {
     display: block;
 }
-.table.reserved {
+/* .table.reserved {
+    background-color: #ADAAAA;
+} */
+.hover {
+    background-color:#EEE;
+}
+.reserved {
     background-color: #ADAAAA;
 }
 .xbutton {
@@ -83,3 +91,15 @@ input[type="text"] {
     left: 365px;
     top: 13px;
 }
+
+  .tooltip {
+    position: absolute;
+    z-index: 999999999;
+    background-color: orange;
+    color: blue;
+    font-size: 20px;
+    width: 300px;
+    height: 40px;
+    right: 10px;
+    top: -50px;
+  }
