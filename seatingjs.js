@@ -5,21 +5,22 @@ $(document).ready(function () {
         $(".popup").fadeIn(1000)
         selectedTable = $(e.target);
         $(".formTableNumber").html("Table Number:" + $(e.target).attr('id'));
-    });//end of form popup on click
+    });
     $(document).on("click", ".save", function (e) {
-        //this is wrong
         $(selectedTable).removeClass("available").addClass("reserved");
         $(".popup").css("display", "none");
+        debugger
         selectedTable
-        .attr("name", $("input").eq(0).val())
-        .attr("phone", $("input").eq(1).val())
-        .attr("size", $("input").eq(2).val());
-    $("input").each(function () {
-        $(this).val("");
-    });
+            .attr("name", $("input").eq(0).val())
+            .attr("phone", $("input").eq(1).val())
+            .attr("size", $("input").eq(2).val());
+        $("input").each(function () {
+            $(this).val("");
+        });
 
     });
-    $(document).on("mouseenter", ".container", (event) => {
+    $(document).on("mouseenter", ".reserved", (event) => {
+        console.log('hey')
         if ($(event.target).attr("name") && $(event.target).attr("phone") && $(event.target).attr("size")) {
             $(event.target).append(`
                       <section class="tooltip">
@@ -66,4 +67,4 @@ $(document).ready(function () {
     //     }
     // });
 
-});//end document ready function
+});
